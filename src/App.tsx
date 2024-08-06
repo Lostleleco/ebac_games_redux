@@ -3,6 +3,8 @@ import Header from './components/Header'
 import Produtos from './containers/Produtos'
 
 import { GlobalStyle } from './styles'
+import { store } from './Store'
+import { Provider } from 'react-redux'
 
 export type Game = {
   id: number
@@ -33,13 +35,13 @@ function App() {
   }
 
   return (
-    <>
+    <Provider store={store}>
       <GlobalStyle />
       <div className="container">
-        <Header itensNoCarrinho={carrinho} />
+        <Header />
         <Produtos jogos={games} adicionarAoCarrinho={adicionarAoCarrinho} />
       </div>
-    </>
+    </Provider>
   )
 }
 
